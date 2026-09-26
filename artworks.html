@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bakhtyar Kaftan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="topbar">
+        <a href="#" data-type="all" class="topbar-entry active">All</a>
+        <a href="#" data-type="oil" class="topbar-entry">Oil on Canvas</a>
+        <a href="#" data-type="pencil" class="topbar-entry">Pencil on Paper</a>
+    </div>
+    <input class="topbar-input" type="text" placeholder="Search by Name">
+    <select class="topbar-select">
+        <option value="all" selected>All Years</option>
+        <option value="2026">2026</option>
+        <option value="2025">2025</option>
+    </select>
+    <select class="topbar-select-2">
+        <option value="all" selected>All Projects</option>
+        <option value="horizontal">Horizontal</option>
+    </select>
+
+    <div class="artworks">
+        <div class="artwork" data-name="Horizontal" data-project="horizontal" data-type="pencil" data-date="2026">
+            <img class="artwork-img" src="./Resources/Horizontal.jpeg">
+            <div class="artwork-text-wrapper">
+                <p class="artwork-text">Horizontal<span class="noselect"> | </span>2026, Pencil on Paper<br>70x50cm</p>
+                <p class="artwork-desc">From the project "Horizontal"</p>
+            </div>
+        </div>
+        <div class="artwork" data-name="Epistemic Exile" data-project="horizontal" data-type="oil" data-date="2025">
+            <img class="artwork-img" src="./Resources/Horizontal-2.jpeg">
+            <div class="artwork-text-wrapper">
+                <p class="artwork-text">Epistemic Exile<span class="noselect"> | </span>2025, Oil on Canvas<br>100x76cm</p>
+                <p class="artwork-desc">From the project "Horizontal"</p>
+            </div>
+        </div>
+        <div class="artwork" data-name="Me and Dante in Heaven" data-project="horizontal" data-type="oil" data-date="2025">
+            <img class="artwork-img" src="./Resources/Horizontal-3.jpeg">
+            <div class="artwork-text-wrapper">
+                <p class="artwork-text">Me and Dante in Heaven<span class="noselect"> | </span>2025, Oil on Canvas<br>136x76cm</p>
+                <p class="artwork-desc">From the project "Horizontal"</p>
+            </div>
+        </div>
+        <div class="artwork" data-name="Medusa is sinking again and again" data-project="horizontal" data-type="oil" data-date="2025">
+            <img class="artwork-img" src="./Resources/Horizontal-4.jpeg">
+            <div class="artwork-text-wrapper">
+                <p class="artwork-text">Medusa is sinking again and again<span class="noselect"> | </span>2025, Oil on Canvas<br>137x102cm</p>
+                <p class="artwork-desc">From the project "Horizontal"</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const f = () => { 
+            const t = document.querySelector('.topbar-entry.active').dataset.type, 
+                  q = document.querySelector('.topbar-input').value.toLowerCase(), 
+                  y = document.querySelector('.topbar-select').value,
+                  p = document.querySelector('.topbar-select-2').value; 
+            
+            document.querySelectorAll('.artwork').forEach(i => { 
+                i.style.display = (t === 'all' || i.dataset.type === t) && 
+                                  i.dataset.name.toLowerCase().includes(q) && 
+                                  (y === 'all' || i.dataset.date === y) &&
+                                  (p === 'all' || i.dataset.project === p) ? '' : 'none'; 
+            });
+        }; 
+
+        document.querySelector('.topbar').addEventListener('click', e => { 
+            e.target.classList.contains('topbar-entry') && (e.preventDefault(), e.currentTarget.querySelectorAll('.topbar-entry').forEach(a => a.classList.remove('active')), e.target.classList.add('active'), f()); 
+        }); 
+
+        document.querySelector('.topbar-input').addEventListener('input', f); 
+        document.querySelector('.topbar-select').addEventListener('change', f);
+        document.querySelector('.topbar-select-2').addEventListener('change', f);
+    </script>
+</body>
+
+</html>

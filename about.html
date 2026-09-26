@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bakhtyar Kaftan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>About</h1>
+    <img src="./Resources/about-1.jpeg">
+
+    <script>const i = document.getElementById("searchInput"), s = document.querySelector("select"), c = document.querySelectorAll(".painting-card"); function f() {const q = i.value.toLowerCase(), t = s.value; c.forEach(e => {const n = e.dataset.name.toLowerCase(), p = e.dataset.type.toLowerCase(), m = n.includes(q), v = "all" === t.toLowerCase() || !t || p === t.toLowerCase(); e.style.display = m && v ? "" : "none"})} i.addEventListener("input", f), s.addEventListener("change", f);</script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bakhtyar Kaftan</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="theme-color" content="#e0af77">
+    </head>
+    <body>
+        <div class="sidebar">
+            <h1 id="title" style="display: inline-block; white-space: nowrap;">Bakhtyar Kaftan</h1>
+            <div class="hr" style="position: absolute; top: 4rem; left: 0;"></div>
+            <a target="mainFrame" href="artworks.html" class="sidebar-entry">Artworks</a>
+            <a target="mainFrame" href="about.html" class="sidebar-entry">About</a>
+        </div>
+        <iframe src="artworks.html" name="mainFrame" class="content"></iframe>
+
+        <script>const e=document.getElementById('title'),p=e.parentElement,o=parseFloat(window.getComputedStyle(e).fontSize);new ResizeObserver(()=>{let f=o;e.style.fontSize=f+'px';while(e.scrollWidth>p.clientWidth&&f>8)e.style.fontSize=--f+'px'}).observe(p);</script>
+    </body>
+</html>
