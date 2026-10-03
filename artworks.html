@@ -100,22 +100,44 @@
                 return new RegExp(words.map(w => `(?=.*${w})`).join(''), 'i');
             }
 
-            // Selects the exact input element from your HTML
-            const searchInput = document.querySelector('.topbar-input');
+            let activeType = 'all';
 
-            searchInput?.addEventListener('input', e => {
-                const regex = createFuzzyRegex(e.target.value);
+            function filterArtworks() {
+                const query = document.querySelector('.topbar-input')?.value || '';
+                const selectedYear = document.querySelector('.topbar-select')?.value || 'all';
+                const selectedProject = document.querySelector('.topbar-select-2')?.value || 'all';
+                const regex = createFuzzyRegex(query);
 
                 document.querySelectorAll('.artwork').forEach(card => {
                     const name = card.dataset.name || '';
-                    const isMatch = !regex || regex.test(name);
+                    const type = card.dataset.type || '';
+                    const date = card.dataset.date || '';
+                    const project = card.dataset.project || '';
 
-                    // Directly toggles visibility on screen
-                    card.style.display = isMatch ? '' : 'none';
+                    const matchesSearch = !regex || regex.test(name);
+                    const matchesType = activeType === 'all' || type === activeType;
+                    const matchesYear = selectedYear === 'all' || date === selectedYear;
+                    const matchesProject = selectedProject === 'all' || project === selectedProject;
+
+                    card.style.display = (matchesSearch && matchesType && matchesYear && matchesProject) ? '' : 'none';
+                });
+            }
+
+            document.querySelector('.topbar-input')?.addEventListener('input', filterArtworks);
+
+            document.querySelector('.topbar-select')?.addEventListener('change', filterArtworks);
+            document.querySelector('.topbar-select-2')?.addEventListener('change', filterArtworks);
+
+            document.querySelectorAll('.topbar-entry').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.querySelectorAll('.topbar-entry').forEach(el => el.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeType = btn.dataset.type || 'all';
+                    filterArtworks();
                 });
             });
 
-            // Click handler for sending visible items to parent window
             document.addEventListener('click', e => {
                 const card = e.target.closest('.artwork');
                 if (!card) return;
