@@ -449,48 +449,65 @@ hr,
 
     .content {
         width: 100% !important;
-        min-width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
         height: calc(100% - 60px) !important;
-        bottom: 60px;
+        position: absolute;
         top: 0;
+        left: 0;
         right: 0;
+        bottom: 60px;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
-    /* --- MOBILE OVERFLOW FIXES --- */
+    /* --- ARTWORKS & TOPBAR MOBILE FIXES --- */
 
-    /* Adjust artworks grid for tablets/mobile */
     .artworks {
-        grid-template-columns: repeat(2, 1fr);
-        top: 8rem; /* Accommodate wrapped topbar controls */
+        position: absolute;
+        top: 8rem;
+        left: 0;
+        width: 100% !important;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
     }
 
-    /* Prevent topbar inputs/selects from spilling out */
-    .topbar-input {
+    .artwork {
+        min-width: 0 !important;
         width: 100%;
+        box-sizing: border-box;
+    }
+
+    .topbar-input {
+        width: 100% !important;
         position: absolute;
         top: 4rem;
         left: 0;
+        box-sizing: border-box;
     }
 
     .topbar-select-2 {
-        width: 50%;
+        width: 50% !important;
         position: absolute;
         top: 6rem;
         left: 0;
         right: auto;
+        box-sizing: border-box;
     }
 
     .topbar-select {
-        width: 50%;
+        width: 50% !important;
         position: absolute;
         top: 6rem;
         right: 0;
+        box-sizing: border-box;
     }
 }
 
-/* Optional single-column breakpoint for phone viewports */
 @media screen and (max-width: 600px) {
     .artworks {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 }
