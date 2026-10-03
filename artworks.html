@@ -1,99 +1,123 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Bakhtyar Kaftan</title>
-    <link rel="stylesheet" href="style.css">
+    <head>
+        <title>Bakhtyar Kaftan</title>
+        <link rel="stylesheet" href="style.css">
         <meta name="theme-color" content="#e0af77">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    </head>
 
-<body>
+    <body>
+        <div class="topbar">
+            <a href="#" data-type="all" class="topbar-entry active">All</a>
+            <a href="#" data-type="oil" class="topbar-entry">Oil on Canvas</a>
+            <a href="#" data-type="pencil" class="topbar-entry">Pencil on Paper</a>
+        </div>
+        <input class="topbar-input" type="text" placeholder="Search by Name">
+        <select class="topbar-select">
+            <option value="all" selected>All Years</option>
+            <option value="2026">2026</option>
+            <option value="2025">2025</option>
+        </select>
+        <select class="topbar-select-2">
+            <option value="all" selected>All Projects</option>
+            <option value="horizontal">Horizontal</option>
+        </select>
 
-    <div class="topbar">
-        <a href="#" data-type="all" class="topbar-entry active">All</a>
-        <a href="#" data-type="oil" class="topbar-entry">Oil on Canvas</a>
-        <a href="#" data-type="pencil" class="topbar-entry">Pencil on Paper</a>
-    </div>
-    <input class="topbar-input" type="text" placeholder="Search by Name">
-    <select class="topbar-select">
-        <option value="all" selected>All Years</option>
-        <option value="2026">2026</option>
-        <option value="2025">2025</option>
-    </select>
-    <select class="topbar-select-2">
-        <option value="all" selected>All Projects</option>
-        <option value="horizontal">Horizontal</option>
-    </select>
+        <div class="artworks">
+            <div class="artwork" data-name="Horizontal" data-project="horizontal" data-type="pencil" data-date="2026">
+                <img class="artwork-img" src="./Resources/Horizontal.jpeg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">Horizontal<span class="noselect"> | </span>2026, Pencil on Paper<br>70x50cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
+            <div class="artwork" data-name="Epistemic Exile" data-project="horizontal" data-type="oil" data-date="2025">
+                <img class="artwork-img" src="./Resources/Horizontal-2.jpeg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">Epistemic Exile<span class="noselect"> | </span>2025, Oil on Canvas<br>100x76cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
+            <div class="artwork" data-name="Me and Dante in Heaven" data-project="horizontal" data-type="oil" data-date="2025">
+                <img class="artwork-img" src="./Resources/Horizontal-3.jpeg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">Me and Dante in Heaven<span class="noselect"> | </span>2025, Oil on Canvas<br>136x76cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
+            <div class="artwork" data-name="Medusa is sinking again and again" data-project="horizontal" data-type="oil" data-date="2025">
+                <img class="artwork-img" src="./Resources/Horizontal-4.jpeg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">Medusa is sinking again and again<span class="noselect"> | </span>2025, Oil on Canvas<br>137x102cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
+            <div class="artwork" data-name="Paul Rubens amazed me my regards to him" data-project="horizontal" data-type="pencil" data-date="2026">
+                <img class="artwork-img" src="./Resources/Horizontal-5.jpeg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">Paul Rubens amazed me; my regards to him<span class="noselect"> | </span>2026, Pencil on Paper<br>50x35cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
+            <div class="artwork" data-name="All together" data-project="horizontal" data-type="oil" data-date="2025">
+                <img class="artwork-img" src="./Resources/Horizontal-6.jpeg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">All together<span class="noselect"> | </span>2025, Oil on Canvas<br>78x58cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
+            <div class="artwork" data-name="Horizonal" data-project="horizontal" data-type="pencil" data-date="2025">
+                <img class="artwork-img" src="./Resources/Horizontal-7.jpeg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">Horizontal<span class="noselect"> | </span>2025, Pencil on Paper<br>38x20cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="artworks">
-        <div class="artwork" data-name="Horizontal" data-project="horizontal" data-type="pencil" data-date="2026">
-            <img class="artwork-img" src="./Resources/Horizontal.jpeg">
-            <div class="artwork-text-wrapper">
-                <p class="artwork-text">Horizontal<span class="noselect"> | </span>2026, Pencil on Paper<br>70x50cm</p>
-                <p class="artwork-desc">From the project "Horizontal"</p>
-            </div>
-        </div>
-        <div class="artwork" data-name="Epistemic Exile" data-project="horizontal" data-type="oil" data-date="2025">
-            <img class="artwork-img" src="./Resources/Horizontal-2.jpeg">
-            <div class="artwork-text-wrapper">
-                <p class="artwork-text">Epistemic Exile<span class="noselect"> | </span>2025, Oil on Canvas<br>100x76cm</p>
-                <p class="artwork-desc">From the project "Horizontal"</p>
-            </div>
-        </div>
-        <div class="artwork" data-name="Me and Dante in Heaven" data-project="horizontal" data-type="oil" data-date="2025">
-            <img class="artwork-img" src="./Resources/Horizontal-3.jpeg">
-            <div class="artwork-text-wrapper">
-                <p class="artwork-text">Me and Dante in Heaven<span class="noselect"> | </span>2025, Oil on Canvas<br>136x76cm</p>
-                <p class="artwork-desc">From the project "Horizontal"</p>
-            </div>
-        </div>
-        <div class="artwork" data-name="Medusa is sinking again and again" data-project="horizontal" data-type="oil" data-date="2025">
-            <img class="artwork-img" src="./Resources/Horizontal-4.jpeg">
-            <div class="artwork-text-wrapper">
-                <p class="artwork-text">Medusa is sinking again and again<span class="noselect"> | </span>2025, Oil on Canvas<br>137x102cm</p>
-                <p class="artwork-desc">From the project "Horizontal"</p>
-            </div>
-        </div>
-        <div class="artwork" data-name="Paul Rubens amazed me my regards to him" data-project="horizontal" data-type="pencil" data-date="2026">
-            <img class="artwork-img" src="./Resources/Horizontal-5.jpeg">
-            <div class="artwork-text-wrapper">
-                <p class="artwork-text">Paul Rubens amazed me; my regards to him<span class="noselect"> | </span>2026, Pencil on Paper<br>50x35cm</p>
-                <p class="artwork-desc">From the project "Horizontal"</p>
-            </div>
-        </div>
-        <div class="artwork" data-name="All together" data-project="horizontal" data-type="oil" data-date="2025">
-            <img class="artwork-img" src="./Resources/Horizontal-6.jpeg">
-            <div class="artwork-text-wrapper">
-                <p class="artwork-text">All together<span class="noselect"> | </span>2025, Oil on Canvas<br>78x58cm</p>
-                <p class="artwork-desc">From the project "Horizontal"</p>
-            </div>
-        </div>
-    </div>
+        <script>
+            const filterArtworks = () => {
+                const t = document.querySelector('.topbar-entry.active').dataset.type,
+                    q = document.querySelector('.topbar-input').value.toLowerCase(),
+                    y = document.querySelector('.topbar-select').value,
+                    p = document.querySelector('.topbar-select-2').value;
 
-    <script>
-        const f = () => { 
-            const t = document.querySelector('.topbar-entry.active').dataset.type, 
-                  q = document.querySelector('.topbar-input').value.toLowerCase(), 
-                  y = document.querySelector('.topbar-select').value,
-                  p = document.querySelector('.topbar-select-2').value; 
-            
-            document.querySelectorAll('.artwork').forEach(i => { 
-                i.style.display = (t === 'all' || i.dataset.type === t) && 
-                                  i.dataset.name.toLowerCase().includes(q) && 
-                                  (y === 'all' || i.dataset.date === y) &&
-                                  (p === 'all' || i.dataset.project === p) ? '' : 'none'; 
+                document.querySelectorAll('.artwork').forEach(i => {
+                    i.style.display = (t === 'all' || i.dataset.type === t) &&
+                        i.dataset.name.toLowerCase().includes(q) &&
+                        (y === 'all' || i.dataset.date === y) &&
+                        (p === 'all' || i.dataset.project === p) ? '' : 'none';
+                });
+            };
+
+            document.querySelector('.topbar').addEventListener('click', e => {
+                if (e.target.classList.contains('topbar-entry')) {
+                    e.preventDefault();
+                    e.currentTarget.querySelectorAll('.topbar-entry').forEach(a => a.classList.remove('active'));
+                    e.target.classList.add('active');
+                    filterArtworks();
+                }
             });
-        }; 
 
-        document.querySelector('.topbar').addEventListener('click', e => { 
-            e.target.classList.contains('topbar-entry') && (e.preventDefault(), e.currentTarget.querySelectorAll('.topbar-entry').forEach(a => a.classList.remove('active')), e.target.classList.add('active'), f()); 
-        }); 
+            document.querySelector('.topbar-input').addEventListener('input', filterArtworks);
+            document.querySelector('.topbar-select').addEventListener('change', filterArtworks);
+            document.querySelector('.topbar-select-2').addEventListener('change', filterArtworks);
 
-        document.querySelector('.topbar-input').addEventListener('input', f); 
-        document.querySelector('.topbar-select').addEventListener('change', f);
-        document.querySelector('.topbar-select-2').addEventListener('change', f);
-    </script>
-</body>
+            document.addEventListener('click', e => {
+                const card = e.target.closest('.artwork');
+                if (!card) return;
+
+                const visibleCards = Array.from(document.querySelectorAll('.artwork')).filter(el => el.style.display !== 'none');
+                const sources = visibleCards.map(el => el.querySelector('img')?.src).filter(Boolean);
+                const index = visibleCards.indexOf(card);
+
+                if (index !== -1) {
+                    window.parent.postMessage({ type: 'ARTWORK_CLICK', sources, index }, '*');
+                }
+            });
+        </script>
+    </body>
 
 </html>

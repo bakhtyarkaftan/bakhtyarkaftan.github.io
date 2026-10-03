@@ -4,9 +4,16 @@
         <title>Bakhtyar Kaftan</title>
         <link rel="stylesheet" href="style.css">
         <meta name="theme-color" content="#e0af77">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     </head>
     <body>
+        <div class="image-overlay">
+            <button class="close-btn">⨉</button>
+            <img class="overlay-img">
+            <button class="prev-btn">⏴</button>
+            <button class="next-btn">⏵</button>
+        </div>
+
         <div class="sidebar">
             <h1 id="title" style="display: inline-block; white-space: nowrap;">Bakhtyar Kaftan</h1>
             <div class="hr" style="position: absolute; top: 4rem; left: 0;"></div>
@@ -15,6 +22,10 @@
         </div>
         <iframe src="artworks.html" name="mainFrame" class="content"></iframe>
 
-        <script>const e=document.getElementById('title'),p=e.parentElement,o=parseFloat(window.getComputedStyle(e).fontSize);new ResizeObserver(()=>{let f=o;e.style.fontSize=f+'px';while(e.scrollWidth>p.clientWidth&&f>8)e.style.fontSize=--f+'px'}).observe(p);</script>
+        <script>
+            const e = document.getElementById('title'), p = e.parentElement, o = parseFloat(window.getComputedStyle(e).fontSize); 
+            new ResizeObserver(() => { let f = o; e.style.fontSize = f + 'px'; while (e.scrollWidth > p.clientWidth && f > 8) e.style.fontSize = --f + 'px' }).observe(p);
+        </script>
+        <script src="script.js"></script>
     </body>
 </html>
