@@ -82,19 +82,53 @@
                     <p class="artwork-desc">From the project "Horizontal"</p>
                 </div>
             </div>
+            <div class="artwork" data-name="2 Minutes of Vivaldi's  &quot;Four Seasons&quot;" data-project="horizontal" data-type="oil" data-date="2025">
+                <img class="artwork-img" src="./Resources/Horizontal-9.jpg">
+                <div class="artwork-text-wrapper">
+                    <p class="artwork-text">2 Minutes of Vivaldi's "Four Seasons"<span class="noselect"> | </span>2025, Oil on Canvas<br>41x41cm</p>
+                    <p class="artwork-desc">From the project "Horizontal"</p>
+                </div>
+            </div>
         </div>
 
         <script>
+            function createFuzzyRegex(query) {
+                if (!query) return null;
+                const sanitized = query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const words = sanitized.split(/\s+/).filter(Boolean);
+                if (!words.length) return null;
+                return new RegExp(words.map(w => `(?=.*${w})`).join(''), 'i');
+            }
+
+            // Selects the exact input element from your HTML
+            const searchInput = document.querySelector('.topbar-input');
+
+            searchInput?.addEventListener('input', e => {
+                const regex = createFuzzyRegex(e.target.value);
+
+                document.querySelectorAll('.artwork').forEach(card => {
+                    const name = card.dataset.name || '';
+                    const isMatch = !regex || regex.test(name);
+
+                    // Directly toggles visibility on screen
+                    card.style.display = isMatch ? '' : 'none';
+                });
+            });
+
+            // Click handler for sending visible items to parent window
             document.addEventListener('click', e => {
                 const card = e.target.closest('.artwork');
                 if (!card) return;
 
-                const visibleCards = Array.from(document.querySelectorAll('.artwork')).filter(el => el.style.display !== 'none');
+                const visibleCards = Array.from(document.querySelectorAll('.artwork'))
+                    .filter(el => el.style.display !== 'none');
 
-                const items = visibleCards.map(el => ({
-                    src: el.querySelector('img')?.src,
-                    name: el.dataset.name
-                })).filter(item => item.src);
+                const items = visibleCards
+                    .map(el => ({
+                        src: el.querySelector('img')?.src,
+                        name: el.dataset.name
+                    }))
+                    .filter(item => item.src);
 
                 const index = visibleCards.indexOf(card);
 
