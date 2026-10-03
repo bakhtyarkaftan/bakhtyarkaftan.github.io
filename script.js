@@ -1,5 +1,6 @@
 const overlay = document.querySelector('.image-overlay');
 const overlayImg = document.querySelector('.overlay-img');
+const overlayTxt = document.querySelector('.overlay-text');
 const closeBtn = document.querySelector('.close-btn');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
@@ -11,7 +12,8 @@ function updateOverlay(index) {
     if (index < 0 || index >= currentArtworks.length) return;
 
     currentIndex = index;
-    overlayImg.src = currentArtworks[currentIndex];
+    overlayImg.src = currentArtworks[currentIndex].src;
+    overlayTxt.textContent = currentArtworks[currentIndex].name || '';
     overlay.classList.add('active');
 }
 
@@ -19,6 +21,7 @@ function closeOverlay() {
     overlay.classList.remove('active');
     setTimeout(() => {
         overlayImg.src = '';
+        overlayTxt.textContent = '';
         currentArtworks = [];
         currentIndex = -1;
     }, 300);
@@ -26,7 +29,7 @@ function closeOverlay() {
 
 window.addEventListener('message', (e) => {
     if (e.data && e.data.type === 'ARTWORK_CLICK') {
-        currentArtworks = e.data.sources || [];
+        currentArtworks = e.data.items || [];
         currentIndex = e.data.index;
         updateOverlay(currentIndex);
     }
